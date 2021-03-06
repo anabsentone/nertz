@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nertz Online</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="nertz.css"/>
+    <script src="jquery-1.7.min.js"></script>
+    <!-- Comment Section
+        SERVER FUNCTIONALITY
+        - References code of https://www.codenames.plus/
+
+        CARDS FUNCTIONALITY
+        - A Python API: https://www.deckofcardsapi.com/ - https://github.com/crobertsbmw/deckofcards
+        - We are using this JavaScript library: https://einaregilsson.github.io/cards.js/ - https://github.com/einaregilsson/cards.js
+        - Maybe worth referencing https://cardgames.io/solitaire/
+    -->
+</head>
+
+<body>
+    <!-- <img class="preload" src="card_js/img/cards.png"/> -->
+
+    <div id="login-screen" style="display: none;">
+        <p>Nertz Online</p>
+        <form>
+            <div class="login-input">
+                <label for="login-nickname">Nickname:</label>
+                <input id="login-nickname" type="text" maxlength="20">
+            </div>
+            <div class="login-input">
+                <label for="login-room">Room:</label>
+                <input id="login-room" type="text" maxlength="20">
+            </div>
+            <div class="login-input">
+                <label for="login-password">Password:</label>
+                <input id="login-password" type="password" maxlength="20">
+            </div>
+            <button id="login-enter">Enter Room</button>
+            <button id="login-create">Create Room</button>
+            <p id="login-error"></p>
+        </form>
+        <p id="login-about"></p>
+    </div>
+
+    <div id="lobby-screen" style="display: none;">
+        <div id="lobby-roominfo">
+            <div id="lobby-roominfo-title">Room Info</div>
+            <div id="lobby-room">Room:</div>
+            <div id="lobby-roomname"></div>
+            <div id="lobby-pass">Password:</div>
+            <div id="lobby-password"></div>
+            <div id="lobby-nick">Nickname:</div>
+            <div id="lobby-nickname"></div>
+        </div>
+        <div id="lobby-teams">
+            <div id="lobby-teams-title">Teams</div>
+            <div id="lobby-team1">
+                <button id="lobby-team1-joinleave" class="team-joinleave">+</button>
+                Team 1
+            </div>
+            <ul id="lobby-team1list"></ul>
+            <div id="lobby-team2">
+                <button id="lobby-team2-joinleave" class="team-joinleave">+</button>
+                Team 2
+            </div>
+            <ul id="lobby-team2list"></ul>
+            <div id="lobby-team3">
+                <button id="lobby-team3-joinleave" class="team-joinleave">+</button>
+                Team 3
+            </div>
+            <ul id="lobby-team3list"></ul>
+            <div id="lobby-team4">
+                <button id="lobby-team4-joinleave" class="team-joinleave">+</button>
+                Team 4
+            </div>
+            <ul id="lobby-team4list"></ul>
+            <div id="lobby-spectators">
+                <button id="lobby-spectators-joinleave" class="team-joinleave">-</button>
+                Spectators
+            </div>
+            <ul id="lobby-team2list"></ul>
+        </div>
+        <div id="lobby-chat">
+            Room Chat
+        </div>
+        <div id="lobby-settings">
+            Game Settings
+        </div>
+        <div id="lobby-actions">
+            <button id="lobby-leave">Leave Room</button>
+            <button id="lobby-readyunready">Ready</button>
+            <button id="lobby-start">Start Game</button>
+        </div>
+        <div id="lobby-leave" style="display: none;">
+            <div id="lobby-leavemodal">
+                <p>Leave this room?</p>
+                <button id="lobby-leaveyes">Leave</button>
+                <button id="lobby-leaveno">Stay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen">
+        <div id="game-readyscreen">
+            <div id="game-score">
+                Scores
+            </div>
+            <button id="game-ready" onclick="gameReady();">Ready</button>
+        </div>
+        <div id="card-table">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="deckType.js"></script>
+    <script type="text/javascript" src="cards.js"></script>
+    <script type="text/javascript" src="nertz.js"></script>
+</body>
+
+</html>
